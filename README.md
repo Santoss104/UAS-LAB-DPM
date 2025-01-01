@@ -38,5 +38,5 @@ This project is licensed under the ISC License.
 
 ### Support
 
-For support, email ikhlasa@gmail.com.
+For support, email ikhlasa1404@gmail.com.
 
