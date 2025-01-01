@@ -92,7 +92,7 @@ const loadBooks = async () => {
         totalPages:
           typeof book.totalPages === "number"
             ? book.totalPages
-            : parseInt(String(book.totalPages)) || 0, // Ensure it's parsed as number
+            : parseInt(String(book.totalPages)) || 0,
         userId: book.userId || "",
         createdAt: book.createdAt || new Date().toISOString(),
         updatedAt: book.updatedAt || new Date().toISOString(),
@@ -115,7 +115,7 @@ const handleAddBook = async () => {
       author: newBook.author,
       genre: newBook.genre,
       description: newBook.description,
-      totalPages: parseInt(newBook.totalPages) || 0, // Add fallback to 0
+      totalPages: parseInt(newBook.totalPages) || 0,
       userId: "",
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
@@ -154,7 +154,6 @@ const handleAddBook = async () => {
     if (!selectedBook) return;
 
     try {
-      // Validate totalPages
       const totalPages = Number(selectedBook.totalPages);
       if (isNaN(totalPages) || totalPages < 0) {
         setError("Please enter a valid number of pages");
@@ -211,11 +210,10 @@ const handleEditBook = async (id: string) => {
     const bookData = await fetchBook(id);
 
     if (bookData) {
-      // Pastikan totalPages dari API ada dan berupa number
       const totalPages =
         bookData.totalPages && !isNaN(Number(bookData.totalPages))
           ? Number(bookData.totalPages)
-          : bookData.total_pages // cek alternatif nama field
+          : bookData.total_pages
           ? Number(bookData.total_pages)
           : 0;
 
